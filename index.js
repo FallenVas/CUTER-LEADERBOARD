@@ -35,6 +35,6 @@ app.get("/previousWinners", async (req, res) => {
     for(let i = 0; i<users.length;i++){
       users[i].rank = i+1
     }
-    res.json(users.slice(0,9));
+    res.json(users.slice(0,11));
   });
 app.listen(port)
