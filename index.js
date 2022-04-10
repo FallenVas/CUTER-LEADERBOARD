@@ -26,5 +26,14 @@ app.get("/twitterUsers", async (req, res) => {
   }
   res.json(users);
 });
-
+app.get("/previousWinners", async (req, res) => {
+    const collection = connection.db.collection("weekly");
+    let users = await collection.findOne({});
+    users = users.users;
+    users.reverse();
+    for(let i = 0; i<users.length;i++){
+      users[i].rank = i+1
+    }
+    res.json(users);
+  });
 app.listen(port)
