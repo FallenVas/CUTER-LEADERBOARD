@@ -16,6 +16,7 @@ app.use(function (req, res, next) {
     );
     next();
   });
+
 app.get("/twitterUsers", async (req, res) => {
   const collection = connection.db.collection("users");
   let users = await collection.findOne({});
@@ -34,6 +35,6 @@ app.get("/previousWinners", async (req, res) => {
     for(let i = 0; i<users.length;i++){
       users[i].rank = i+1
     }
-    res.json(users.slice(0,49));
+    res.json(users.slice(0,9));
   });
 app.listen(port)
