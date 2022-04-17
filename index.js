@@ -29,7 +29,8 @@ app.get("/twitterUsers", async (req, res) => {
 });
 app.get("/previousWinners", async (req, res) => {
     const collection = connection.db.collection("weekly");
-    let users = await collection.findOne({});
+    let users = await collection.find({});
+    users = users[users.length-1]
     users = users.users;
     users.reverse();
     for(let i = 0; i<users.length;i++){
