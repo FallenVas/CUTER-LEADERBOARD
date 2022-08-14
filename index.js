@@ -2,8 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 5000
+require('dotenv').config();
 mongoose.connect(
-  "mongodb+srv://nightzokssa:Nightzokssa1@cluster0.hckks.mongodb.net/SamBroTwitter?retryWrites=true&w=majority"
+  proccess.env.MONGODB_URI,
 );
 const connection = mongoose.connection;
 connection.on("open", () => console.log("connected"));
