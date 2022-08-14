@@ -40,4 +40,7 @@ app.get("/previousWinners", async (req, res) => {
     }
     res.json(users.slice(0,11));
   });
+  app.get('/' , (req, res) => {
+    res.send('hello')
+  })
 app.listen(port)
